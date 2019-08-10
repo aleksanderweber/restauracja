@@ -8,14 +8,18 @@ public class Beeper {
     Beeper(int nrZestawu, int cena) {
         this.idZamowienia = UUID.randomUUID().toString();
         this.nrZestawu = nrZestawu;
-        this.createdAt = LocalDateTime.now();
         this.cena = cena;
+        this.createdAt = LocalDateTime.now();
     }
 
-    String idZamowienia;
+    final String idZamowienia;
     int nrZestawu;
     int cena;
     LocalDateTime createdAt;
     LocalDateTime calledAt;
+
+    public void sygnalDoKuchni(int nrZestawu) {
+
+    }
 
 }

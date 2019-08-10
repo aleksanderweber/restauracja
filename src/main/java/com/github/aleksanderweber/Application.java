@@ -10,7 +10,5 @@ public class Application {
         while (true) {
             pierwszaKasa.skladanieZamowienia();
         }
-
     }
-
 }

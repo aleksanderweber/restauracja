@@ -1,14 +1,11 @@
 package com.github.aleksanderweber;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 public class Kasa {
 
     List<String> lista = new ArrayList<>();
+    int cena;
 
     public void skladanieZamowienia() {
         Scanner sc = new Scanner(System.in);
@@ -20,26 +17,20 @@ public class Kasa {
         String x = sc.nextLine();
         int y = 0;
 
+        if (x.equalsIgnoreCase("exit")) { System.exit(0); }
+
         if (!x.equals("1") && !x.equals("2") && !x.equals("3")) {
             System.out.println("Niepoprawny nr zamówienia");
-        }
-
-
-        if (x.equals("1") || x.equals("2") || x.equals("3")) {
+        } else {
             y = Integer.parseInt(x);
-            if (y == 1) {
-                Beeper beeper = new Beeper(y, 10);
-            }
-            if (y == 2) {
-                Beeper beeper = new Beeper(y, 12);
-            }
-            if (y == 3)){
-                Beeper beeper = new Beeper(y, 15);
-            }
 
-            lista.add(beeper.idZamowienia);
+            if (y == 1) { cena = 10; }
+            if (y == 2) { cena = 12; }
+            if (y == 3) { cena = 15; }
+
+            Beeper beeper = new Beeper(y, cena);
+            beeper.sygnalDoKuchni(y);
+            System.out.println(lista);
         }
-//       System.out.println(lista);
     }
-
 }
